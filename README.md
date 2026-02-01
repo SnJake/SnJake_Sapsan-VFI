@@ -8,9 +8,19 @@ SnJake **Sapsan-VFI** is a custom ComfyUI node for **x2 video frame interpolatio
 
 # Examples
 
-https://github.com/user-attachments/assets/7c9094bf-324c-4158-992f-6dbba7c13d70
-https://github.com/user-attachments/assets/d5f6a342-2c26-4736-82d8-0aac40d4fe8a
-https://github.com/user-attachments/assets/580f9471-51e1-4ebc-aaed-d8725ec5c611
+
+https://github.com/user-attachments/assets/2caa951b-a6c9-4423-8a5e-364b65b88e6b
+
+
+
+
+https://github.com/user-attachments/assets/55b9cc81-acd6-4bde-bd5e-66b082c34c10
+
+
+
+
+https://github.com/user-attachments/assets/fd9ebc75-20fa-434f-9541-1075558b22ac
+
 
 ---
 
