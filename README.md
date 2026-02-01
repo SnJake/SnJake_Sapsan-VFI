@@ -65,7 +65,7 @@ On first use the node can automatically download weights from the repository.
 - Available weights on HF: `Sapsan-VFI.safetensors` and `Sapsan-VFI.pt`
 
 If you want to download manually:
-1. Download the weights from the HF repo: `https://huggingface.co/SnJake/Sapsan-VFI`.
+1. Download the weights from the [HF repo](https://huggingface.co/SnJake/Sapsan-VFI).
 2. Place the file(s) into `ComfyUI/models/sapsan_vfi/`.
 
 ## Step 3: Restart
