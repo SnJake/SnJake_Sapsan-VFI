@@ -1,0 +1,109 @@
+run_dir: runs/exp004
+seed: 4
+device: cuda
+
+performance:
+  flash_sdp: true
+  mem_efficient_sdp: true
+  math_sdp: true
+  torch_compile: true
+
+data:
+  roots:
+    - "E:/FrameNN_subset"
+  manifest: "runs/exp004/dataset_manifest.jsonl"
+  manifest_errors_log: "runs/exp004/manifest_errors.jsonl"
+  manifest_force_count: false
+  backend: "decord"
+  format: "wds"
+  npz_dir: ""
+  npz_manifest: ""
+  wds_urls: "file:/workspace/wds/shard-{000000..000150}.tar"
+  wds_shuffle: 1000
+  wds_image_ext: "png"
+  max_total_tries: 500
+  extensions: [".mp4", ".mkv", ".avi", ".webm", ".flv", ".mov", ".mpg", ".mpeg"]
+  train_crop: [384, 384]
+  min_size: [384, 384]
+  resize_short_edge: 0
+  frame_stride_min: 1
+  frame_stride_max: 3
+  reader_cache: 1
+  max_tries: 10
+  random_horizontal_flip: true
+
+loader:
+  batch_size: 16
+  num_workers: 10
+  pin_memory: true
+  persistent_workers: true
+  prefetch_factor: 4
+
+train:
+  epochs: 11
+  steps_per_epoch: 9437
+  amp: "bf16" #bf16
+  grad_accum_steps: 2
+  clip_grad_norm: 0.5
+  log_interval: 50
+  save_interval_epochs: 1
+  resume: ""
+  profile: false
+  profile_interval: 20
+  profile_warmup_steps: 10
+  profile_max_steps: 200
+
+optim:
+  lr: 8e-5
+  weight_decay: 1e-4
+  betas: [0.9, 0.999]
+
+scheduler:
+  type: "cosine"
+  warmup_steps: 500
+  min_lr: 0.05
+
+ema:
+  enable: true
+  decay: 0.9999
+
+loss:
+  l1_weight: 1.0
+  charbonnier_weight: 0.5
+  ssim_weight: 0.1
+  flow_smooth_weight: 0.01
+  flow_edge_weight: 0.02
+  flow_edge_alpha: 10.0
+  warp_weight: 0.01
+  occ_reg_weight: 0.01
+  grad_weight: 0.01
+  laplacian_weight: 0.0
+  perceptual_weight: 0.03
+  perceptual_type: "lpips"
+  lpips_net: "vgg"
+  perceptual_layers: [3, 8, 15]
+  multiscale_weight: 0.2
+  multiscale_scales: [0.5, 0.25]
+  multiscale_weights: [0.5, 0.25]
+  temporal_weight: 0.12
+  temporal_t: 0.25
+  temporal_every: 4
+  temporal_detach: true
+  charbonnier_eps: 0.001
+  color_consistency_weight: 0.02
+  brightness_consistency_weight: 0.02
+  color_consistency_use_std: true
+  brightness_consistency_use_std: true
+
+model:
+  base_channels: 64 # 64
+  num_scales: 4 # 4
+  flow_refine_depth: 3 # 3
+  fusion_depth: 3 # 3
+  use_attention: true
+  attention_heads: 4
+  attention_window: 8
+  use_occlusion_mask: true
+
+infer:
+  pad_multiple: 8

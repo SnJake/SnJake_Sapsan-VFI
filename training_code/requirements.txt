@@ -1,0 +1,10 @@
+opencv-python
+pyyaml
+tqdm
+decord
+webdataset
+triton
+lpips
+av
+# flash-attn
+safetensors 
