@@ -19,7 +19,7 @@ Documentation = "https://github.com/SnJake/SnJake_Sapsan-VFI/wiki"
 "Bug Tracker" = "https://github.com/SnJake/SnJake_Sapsan-VFI/issues"
 
 [tool.comfy]
-PublisherId = ""
+PublisherId = "snjake"
 DisplayName = "SnJake_Sapsan-VFI"
 Icon = ""
 includes = [] 
